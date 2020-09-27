@@ -1,0 +1,63 @@
+{% extends 'home/index.html' %}
+{% load static %}
+{% block titulo %}Productos{% endblock %}
+{% block head %}
+<style>
+  #prod_precio {
+    font-size: large;
+    padding: 0.5rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+
+  @media (max-width: 620px) {
+          #prod_precio {
+            padding: 0.5rem;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+        }
+      }
+
+      @media (max-width: 620px) {
+          .imagen {
+            margin: -1rem;
+        }
+      }
+
+  .card {
+    border-color: transparent;
+  }
+</style>
+{% endblock %}
+{% block contenido %}
+<main role="main" class="inner cover" style="margin-top: 1rem; margin-left: 1rem;">
+  <h2 class="cover-heading">Productos de <div style="font-family: 'Times New Roman', Times, serif; display: inline; color: #00FDFF; font-style: italic;">Ciel Vogue</div></h2>
+  <div class="container" style="margin-top: 2rem; margin-bottom: 2rem;">
+    <div class="row row-cols-1 align-items-center">
+      {% for producto in productos %}
+        <div class="row row-cols-2 bg-light p-2 align-items-center" style="border-radius: 1rem;">
+          <div class="col-4">
+            <div class="card text-white imagen" style="background-color: transparent;">
+              <img src="{% static producto.patronS %}" class="card-img-top" alt="imagen">
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="card text-dark" style="background-color: transparent;">
+              <div class="card-body align-content-center" style="text-shadow: none;">
+                <h5 class="card-title">{{producto.nombre}}</h5>
+                <p class="card-text">{{producto.descripcion}}</p>
+                <form method="POST">
+                  {% csrf_token %}
+                  <input type="hidden" name="nombre" value="{{producto.nombre}}">
+                  <input class="btn btn-block bg-info" type="submit" name="detalles" value="Ver detalles">
+                </form>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div> 
+      {% endfor %}
+    </div>
+  </div>
+</main>
+{% endblock %}

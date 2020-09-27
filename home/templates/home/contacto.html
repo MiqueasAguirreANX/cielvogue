@@ -1,0 +1,16 @@
+{% extends 'home/index.html' %}
+{% load static %}
+{% block titulo %}Contacto{% endblock %}
+{% block head %}{% endblock %}
+{% block contenido %}
+<main role="main" class="inner cover">
+  <h1 class="cover-heading">Soy Daniela Cosme</h1>
+  <p class="lead">Soy tanto, tanto y tanto</p>
+  <p class="lead">Y otro poco tanto</p>
+  {% if user.is_authenticated %}
+  <p class="lead">
+    <a href="#" class="btn btn-lg btn-info">Contactar</a>
+  </p>
+  {% endif %}
+</main>
+{% endblock %}

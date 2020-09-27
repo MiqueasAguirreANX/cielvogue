@@ -1,0 +1,15 @@
+{% extends 'home/index.html' %}
+{% load static %}
+{% block titulo %}Ciel Vogue{% endblock %}
+{% block head %}{% endblock %}
+{% block contenido %}
+<main role="main" class="inner cover" style="margin-top: 2rem; margin-left: 1rem;">
+  <img src="{% static 'images/logo.png' %}" width="360" height="360" style=" margin-left: 1rem; margin-right: 1rem; margin-bottom: 1rem;">
+  <h1 class="cover-heading">Tienda de <div style="font-family: 'Times New Roman', Times, serif; display: inline; color: #00FDFF; font-style: italic;">Ciel Vogue</div></h1>
+  <p class="lead">Mira todo lo que tengo para ofrecer, paga con medios conocidos y contactame! Solo debes registrarte gratis...</p>
+  <p class="lead" style="font-size: xx-large;">Que disfrutes, nos vemos</p>
+  <p class="lead">
+    <a href="{% url 'registro' %}" class="btn btn-lg btn-info">Registrarme</a>
+  </p>
+</main>
+{% endblock %}
