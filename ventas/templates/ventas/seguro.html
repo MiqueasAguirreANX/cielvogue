@@ -1,0 +1,32 @@
+{% extends 'home/index.html' %}
+{% load static %}
+{% block titulo %}Producto{% endblock %}
+{% block head %}
+<style>
+</style>
+{% endblock %}
+{% block contenido %}
+<main role="main" class="inner cover" style="margin-top: 1rem; margin-left: 1rem;">
+    <div class="card bg-light text-info" style="padding-left: 2rem; padding-right: 2rem; margin-bottom: 2rem;">
+        <div class="card-body">
+          <p class="card-text">
+              ¿Estas seguro que desea comprar este articulo?
+              <br>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-info btn-sm"><a href="{% url 'productos' %}" style="text-decoration: none; color: black!important; margin: 0.5rem;">Volver</a></button>
+                {% if largo == "L" %}
+                {% autoescape off %}
+                {{producto.scriptMPL}}
+                {% endautoescape %}
+                {% else %}
+                {% autoescape off %}
+                {{producto.scriptMPS}}
+                {% endautoescape %}
+                {% endif %}
+              </div>
+          </p>
+        </div>
+      </div>
+    
+</main>
+{% endblock %}

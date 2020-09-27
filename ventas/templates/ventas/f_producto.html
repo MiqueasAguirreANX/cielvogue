@@ -7,21 +7,35 @@
 {% endblock %}
 {% block contenido %}
 <main role="main" class="inner cover" style="margin-top: 1rem; margin-left: 1rem;">
-    <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <div class="card bg-light text-info" style="padding-left: 2rem; padding-right: 2rem; margin-bottom: 2rem;">
+        <img src="{% static producto.patronS %}" class="card-img-top" alt="..." style="margin-top: 2rem; margin-bottom: 2rem;">
+        <div class="card-body">
+          <h2 class="card-title">{{producto.nombre}}</h2>
+          <h5 class="card-title">{{producto.descripcion}}</h5>
+          <p>Precio talle S: $ {{producto.precioSmall|floatformat}}</p>
+          <p>Precio talle L: $ {{producto.precioLarge|floatformat}}</p>
+          <form method="POST">
+              {% csrf_token %}
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radios" id="exampleRadios1" value="S" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                      Talle pequeño (S)
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radios" id="exampleRadios2" value="L">
+                    <label class="form-check-label" for="exampleRadios2">
+                      Talle largo (L)
+                    </label>
+                  </div>
+              </div>
+              <input type="hidden" name="titulo" value="{{producto.nombre}}">
+            <button type="submit" class="btn btn-success" style="display: inline;">Comprar</button>
+          </form>
+          
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+      </div>
+    
 </main>
 {% endblock %}

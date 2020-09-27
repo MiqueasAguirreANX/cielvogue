@@ -8,7 +8,8 @@ class Producto(models.Model):
     talle = models.CharField(max_length=6, choices=[('Small','Small'), ('Large', 'Large')], default='S')
     precioSmall = models.FloatField()
     precioLarge = models.FloatField()
-    scriptMP = models.TextField()
+    scriptMPL = models.TextField(default="<div class='btn btn-danger'>Error</div>")
+    scriptMPS = models.TextField(default="<div class='btn btn-danger'>Error</div>")
     imagen = models.ImageField(upload_to='static/imagenes')
 
     def __str__(self):
