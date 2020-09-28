@@ -1,1 +1,26 @@
-Registro
+{% extends 'home/index.html' %}
+{% load static %}
+{% block titulo %}Ciel Vogue{% endblock %}
+{% block head %}{% endblock %}
+{% block contenido %}
+<main role="main" class="inner cover" style="margin-top: 2rem; margin-left: 1rem;">
+  <h1 class="cover-heading"><div style="font-family: 'Times New Roman', Times, serif; display: inline; color: #00FDFF; font-style: italic;">Registrarse</div></h1>
+  <form class="form-signin" method="POST">
+        {% csrf_token %}
+        <div class="fieldWrapper">
+          <p style="position: relative; margin-top: 1rem; margin-bottom: 0.5rem;">Nombre de usuario</p>
+          <input type="text" name="username" class="btn btn-light" autofocus required id="id_username" style="border-radius: 0.5rem;">
+        </div>
+        <div class="fieldWrapper" style="display: block;">
+          <p style="position: center;margin-top: 1rem; margin-bottom: 0.5rem;">Contraseña</p>
+          <input type="password" name="password1" class="btn btn-light" autocomplete="new-password" required id="id_password1" style="border-radius: 0.5rem;">
+        </div>
+        <div class="fieldWrapper" style="margin-bottom: 0.5rem;">
+          <p style="position: center;margin-top: 1rem; margin-bottom: 0.5rem;">Repetir la contraseña</p>
+          <input type="password" name="password2" class="btn btn-light" autocomplete="new-password" required id="id_password2" style="border-radius: 0.5rem;">
+        </div>
+        <button class="btn btn-light" type="submit" style="color: #0083FF; font-weight: bold; margin-top: 1rem;margin-right:2rem;margin-left:2rem;">Iniciar sesion</button>
+        <p class="mt-5 mb-3" style="color: white;">&copy; 2019-2020</p>
+    </form>
+</main>
+{% endblock %}

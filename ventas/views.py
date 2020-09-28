@@ -29,11 +29,7 @@ def productos(response):
                 return redirect('/')
     else:
         if Producto.objects.all():
-            lista = []
-            for prd in Producto.objects.all():
-                lista.append("imagenes/"+str(prd.nombre)+".jpeg")
             contexto["productos"] = Producto.objects.all()
-            contexto["nombres"] = lista
         return render(response, 'ventas/productos.html', contexto)
 
 def detalles(response):
